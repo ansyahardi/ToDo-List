@@ -1,6 +1,69 @@
+$primary: #0E86D4;
+$secondary: #003060;
+
+
 body{
-  padding: 0;
+  padding: 0 20px;
   margin: 0;
   box-sizing: border-box;
+  background: #F0EEEE;
+  font-family: 'Poppins', sans-serif;
 }
 
+h2{
+  text-align: center;
+  color: $primary;
+  text-shadow: 0 4px 4px rgba(0,0,0,.25);
+}
+
+.input-list{
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  position: relative;
+
+  input[type="text"]{
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    outline: none;
+    transition: .3s;
+  }
+
+  span
+  {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    appearance: none;
+    pointer-events: none;
+    color: #999;
+    font-size: .7rem;
+    transition: .3s;
+  }
+
+  input[type="text"]:focus{
+    border-color: $primary;
+  }
+
+  input[type="text"]:focus ~ span,
+  input[type="text"]:valid ~ span
+  {
+    font-weight: bold;
+    font-size: 1rem;
+    top: -15px;
+    color: $primary;
+  }
+}
+
+.card-lists{
+  max-width: 800px;
+  background: $primary;
+  margin: 50px auto;
+}

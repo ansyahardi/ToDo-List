@@ -1,7 +1,73 @@
 body {
-  padding: 0;
+  padding: 0 20px;
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  background: #F0EEEE;
+  font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #0E86D4;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.input-list {
+  max-width: 800px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.input {
+  position: relative;
+}
+
+.input input[type="text"] {
+  width: 300px;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid black;
+  background: transparent;
+  outline: none;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.input span {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  pointer-events: none;
+  color: #999;
+  font-size: .7rem;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.input input[type="text"]:focus {
+  border-color: #0E86D4;
+}
+
+.input input[type="text"]:focus ~ span,
+.input input[type="text"]:valid ~ span {
+  font-weight: bold;
+  font-size: 1rem;
+  top: -15px;
+  color: #0E86D4;
+}
+
+.card-lists {
+  max-width: 800px;
+  background: #0E86D4;
+  margin: 50px auto;
 }
 /*# sourceMappingURL=style.css.map */
