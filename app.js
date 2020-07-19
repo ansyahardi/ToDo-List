@@ -6,6 +6,9 @@ tambah.addEventListener("click", tambahData);
 function tambahData(){
   const input = document.querySelector("input[type='text']");
   const data = input.value;
+  if (data == ""){
+    return alert('isikan data');
+  }
   const list = document.createElement("div");
   const isi = document.createTextNode(data);
   const close = document.createElement("div");
