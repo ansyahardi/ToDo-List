@@ -24,6 +24,28 @@ h2 {
           justify-content: center;
 }
 
+.input-list input[type="button"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px 20px;
+  background: #003060;
+  color: #fff;
+  border: none;
+  margin-left: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: .3s;
+  transition: .3s;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.input-list input[type="button"]:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
 .input {
   position: relative;
 }
@@ -39,26 +61,26 @@ h2 {
   transition: .3s;
 }
 
-.input span {
+.input span,
+.input input:invalid + span {
   position: absolute;
-  top: 5px;
+  top: 12px;
   left: 0;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   pointer-events: none;
   color: #999;
-  font-size: .7rem;
+  font-size: .8rem;
   -webkit-transition: .3s;
   transition: .3s;
 }
 
-.input input[type="text"]:focus {
+.input input:focus {
   border-color: #0E86D4;
 }
 
-.input input[type="text"]:focus ~ span,
-.input input[type="text"]:valid ~ span {
+.input input:focus + span {
   font-weight: bold;
   font-size: 1rem;
   top: -15px;
@@ -66,8 +88,65 @@ h2 {
 }
 
 .card-lists {
-  max-width: 800px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: 600px;
   background: #0E86D4;
   margin: 50px auto;
+  -webkit-box-shadow: 5px 8px 14px rgba(0, 0, 0, 0.26);
+          box-shadow: 5px 8px 14px rgba(0, 0, 0, 0.26);
+  padding: 10px 30px 30px;
+  border-radius: 2px;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.card-lists .list {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #FFF;
+  margin-top: 20px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 0 10px 20px;
+  border-radius: 2px;
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.card-lists .list .delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50px;
+  background: #003060;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.2rem;
+  color: #fff;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.card-lists .list .delete:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 /*# sourceMappingURL=style.css.map */

@@ -21,6 +21,25 @@ h2{
   margin: auto;
   display: flex;
   justify-content: center;
+
+  input[type="button"]{
+    box-sizing: border-box;
+    padding: 10px 20px;
+    background: $secondary;
+    color: #fff;
+    border: none;
+    margin-left: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: .3s;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  input[type="button"]:active{
+    transform: scale(.9);
+  }
 }
 
 .input {
@@ -36,24 +55,24 @@ h2{
     transition: .3s;
   }
 
-  span
+  span,
+  input:invalid + span
   {
     position: absolute;
-    top: 5px;
+    top: 12px;
     left: 0;
     appearance: none;
     pointer-events: none;
     color: #999;
-    font-size: .7rem;
+    font-size: .8rem;
     transition: .3s;
   }
 
-  input[type="text"]:focus{
+  input:focus{
     border-color: $primary;
   }
 
-  input[type="text"]:focus ~ span,
-  input[type="text"]:valid ~ span
+  input:focus + span
   {
     font-weight: bold;
     font-size: 1rem;
@@ -63,7 +82,47 @@ h2{
 }
 
 .card-lists{
-  max-width: 800px;
+  box-sizing: border-box;
+  max-width: 600px;
   background: $primary;
   margin: 50px auto;
+  box-shadow: 5px 8px 14px rgba(0,0,0,.26);
+  padding: 10px 30px 30px;
+  border-radius: 2px;
+  transition: .3s;
+
+  .list{
+    width: 100%;
+    box-sizing: border-box;
+    background: #FFF;
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    padding: 10px 0 10px 20px;
+    border-radius: 2px;
+    box-shadow: 4px 4px 4px rgba(0,0,0,.25);
+    transition: .3s;
+
+    .delete{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 2px;
+      cursor: pointer;
+      box-sizing: border-box;
+      width: 50px;
+      background: $secondary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      color: #fff;
+      transition: .3s;
+    }
+
+    .delete:active{
+      transform: scale(.9);
+    }
+  }
 }
