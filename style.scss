@@ -44,9 +44,12 @@ h2{
 
 .input {
   position: relative;
+  width: 300px;
+  max-width: 90%;
 
   input[type="text"]{
-    width: 300px;
+    width: 100%;
+    // max-width: 90%;
     height: 30px;
     border: none;
     border-bottom: 1px solid black;
@@ -103,6 +106,10 @@ h2{
     box-shadow: 4px 4px 4px rgba(0,0,0,.25);
     transition: .3s;
 
+    p{
+      padding: 0;
+    }
+
     .delete{
       position: absolute;
       top: 0;
@@ -124,5 +131,30 @@ h2{
     .delete:active{
       transform: scale(.9);
     }
+
+    .finish{
+      position: absolute;
+      top: 0;
+      right: 60px;
+      bottom: 0;
+      background-color: $secondary;
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      color: #fff;
+      transition: .3s;
+      border-radius: 2px;
+
+      &:active{
+        transform: scale(.9);
+      }
+    }
   }
+}
+
+.line-through{
+  text-decoration: line-through;
+  color: #aaa;
 }
