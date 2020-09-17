@@ -82,7 +82,24 @@ h2 {
   border-color: #0E86D4;
 }
 
-.input input:focus + span {
+.input input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.input input:-ms-input-placeholder {
+  color: transparent;
+}
+
+.input input::-ms-input-placeholder {
+  color: transparent;
+}
+
+.input input::placeholder {
+  color: transparent;
+}
+
+.input input:focus + span,
+.input input:not(:placeholder-shown) + span {
   font-weight: bold;
   font-size: 1rem;
   top: -15px;
@@ -177,6 +194,7 @@ h2 {
   -webkit-transition: .3s;
   transition: .3s;
   border-radius: 2px;
+  cursor: pointer;
 }
 
 .card-lists .list .finish:active {

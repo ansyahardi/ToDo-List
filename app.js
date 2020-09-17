@@ -2,17 +2,16 @@ const tambah = document.querySelector("input[type='button']");
 const cardList = document.querySelector(".card-lists");
 
 //cek localStorage apakah ada isi atau tidak
+// set
 if(localStorage.todo){
   let siapa = JSON.parse(localStorage.todo);
-  if(JSON.parse(localStorage.todo).length === undefined){
-    listkanItem(siapa.judul, siapa.id);
-  } else {
-    siapa.map(e => listkanItem(e.judul, e.id));
+  if(siapa.length === undefined){ //jika datanya cuma 1
+    listkanItem(siapa.judul, siapa);
+  } else { // saat datanya lebih dari 1
+    siapa.map(e => listkanItem(e.judul, e));
   }
 }
 
-
-// console.log(JSON.parse(localStorage.todo).length);
 
 tambah.addEventListener("click", tambahData);
 
@@ -41,7 +40,6 @@ function tambahData(){
       localStorage.todo = JSON.stringify(kirim);
     }
     listkanItem(data, isiData.id);
-    // list.setAttribute('urutan', isiData.id);
   } else {
     const isiData = {
       id: 0,
@@ -50,7 +48,7 @@ function tambahData(){
     };
     localStorage.todo = JSON.stringify(isiData);
     listkanItem(data, isiData.id);
-    // list.setAttribute('urutan', isiData.id);
+    location.reload();
   }
   input.value = "";
 }
@@ -59,7 +57,6 @@ cardList.addEventListener("click", function(e){
   if(e.target.className == "delete"){
     const text = e.target.parentElement;
     const urutan = text.getAttribute('urutan');
-    // console.log(urutan);
 
     if(JSON.parse(localStorage.todo).length === undefined || JSON.parse(localStorage.todo).length === 1){
       e.target.parentElement.remove();
@@ -77,11 +74,26 @@ cardList.addEventListener("click", function(e){
   }
   if(e.target.className == "finish"){
     e.target.parentElement.classList.toggle('line-through');
+    data = JSON.parse(localStorage.todo);
+    let parent = e.target.parentElement;
+    let id = Number(parent.getAttribute("urutan"));
+
+    if(data.length === undefined){
+      data.coret = !data.coret;
+      localStorage.todo = JSON.stringify(data);
+    } else {
+      data.forEach(i => {
+        if(i.id === id){
+          i.coret = !i.coret;
+        }
+      });
+      localStorage.todo = JSON.stringify(data);
+    }
   }
 });
 
 
-function listkanItem(judul, id){
+function listkanItem(judul, data){
   // buat setiap element
   const list = document.createElement('div');
   const divIsi = document.createElement('div');
@@ -100,6 +112,12 @@ function listkanItem(judul, id){
   list.append(finish);
   list.append(close);
   list.classList.add('list');
-  list.setAttribute('urutan', id);
+  list.setAttribute('urutan', data.id);
+
+  // jika coretnya true
+  if(data.coret){
+    list.classList.add('line-through');
+  }
+
   cardList.append(list);
 }
